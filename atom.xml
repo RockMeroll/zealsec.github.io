@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.izilong.net/"/>
-  <updated>2017-01-21T12:43:33.000Z</updated>
+  <updated>2017-01-21T13:30:36.000Z</updated>
   <id>http://blog.izilong.net/</id>
   
   <author>
@@ -14,6 +14,53 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2016总结</title>
+    <link href="http://blog.izilong.net/2017/01/21/2016%E6%80%BB%E7%BB%93/"/>
+    <id>http://blog.izilong.net/2017/01/21/2016总结/</id>
+    <published>2017-01-21T12:46:39.000Z</published>
+    <updated>2017-01-21T13:30:36.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>想写一下2016的总结，想了半天，不知道该从哪里写起，2016发生了太多太多。一点一点写吧。</p>
+<h1 id="实习"><a href="#实习" class="headerlink" title="实习"></a>实习</h1><p>2016年春节过完之后，初八，到青岛一家安全公司实习，绝大多数时间在自学，算是把Linux基本的用法和知识掌握了个差不多，也跟公司的师傅学了很多猥琐的姿势。</p>
+<p>平时上课没事也会到公司过周六周天，老大和师傅们是真的强，对我也是真的好。学到了很多东西，也意识到人外有人天外有天。</p>
+<p>寒假放假之后，白天学NA，晚上住公司，跟师傅学姿势。用docker做了次比赛，现在正在运行，用了七八个docker，搭建了七八个靶场。</p>
+<h1 id="比赛"><a href="#比赛" class="headerlink" title="比赛"></a>比赛</h1><ol>
+<li>七八月份 上海 第九届全国大学生信息安全技能大赛 三等奖</li>
+<li>九月份 济南 蓝盾杯网络空间安全竞赛（山东赛区） 特等奖</li>
+<li>十月份 西安 XDCTF 二等奖</li>
+<li>十一月份 青岛 山东省大学生网络安全技能大赛 团体二等奖、个人二等奖</li>
+<li>十二月份 广州 蓝盾杯网络空间安全竞赛（全国总决赛）一等奖</li>
+</ol>
+<p>憋屈了大半个大学，这学期终于有能拿的出手的奖了。虽然拿了些奖，但其中运气、巧合的因素有很多，被大佬带飞，躺赢的时候也有。比赛的技术难度也不高。还是得继续加油~</p>
+<h1 id="带人"><a href="#带人" class="headerlink" title="带人"></a>带人</h1><p>最有成就感的事就是带了一批搞安全的学弟出来，当然，最重要的因素还是小伙子们自身的努力。</p>
+<p>短短几个月的时间，成长的不慢。各个比赛也能拿奖了，也可以做项目了。有些比赛还被学弟压在下面，逃….</p>
+<p>继续加油吧，希望这种势头能够一代代传承下去。 人多了才能搞事情嘛~</p>
+<h1 id="项目"><a href="#项目" class="headerlink" title="项目"></a>项目</h1><p>跟师傅们驻场和线上，做了几次项目。真的是感谢各位师傅给的机会。</p>
+<ol>
+<li>杭州某驻场项目 跟牛们学到很多姿势，知道了渗透测试报告该怎么写，内网该怎么漫游。</li>
+<li>线上某公司项目 F老板给了7个Web系统测，分工给了学弟，没拿到什么成果。可以说是一团糟= =、 也不算坏事，及时发现问题，及时总结改正，希望下次能圆满的完成任务。</li>
+<li>青岛某驻场项目 按计划只有几个小时的时间，能拿到点东西就算完成任务。非常幸运的是控了整个内网。圆满完成。</li>
+<li>比赛环境搭建 公司项目，用docker在公网上做了套靶场。边查边做，巩固了一下docker的相关知识。也从得到了一丝灵感，争取2017年能够做出东西。</li>
+<li>本该去，但因为学校课程原因没去成的项目。。。GG，希望以后还能有机会。</li>
+</ol>
+<h1 id="Love"><a href="#Love" class="headerlink" title="Love"></a>Love</h1><p>忍不住笑了。。。。最重要的事当然留到最后说。</p>
+<p>2016最重要的事情，碰到了对的人，还很幸运的走到了一起。（狗粮吃的可爽？）</p>
+<p>不管怎么样，以后会一起走下去。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;想写一下2016的总结，想了半天，不知道该从哪里写起，2016发生了太多太多。一点一点写吧。&lt;/p&gt;
+&lt;h1 id=&quot;实习&quot;&gt;&lt;a href=&quot;#实习&quot; class=&quot;headerlink&quot; title=&quot;实习&quot;&gt;&lt;/a&gt;实习&lt;/h1&gt;&lt;p&gt;2016年春节过完之后，初八，到
+    
+    </summary>
+    
+      <category term="Others" scheme="http://blog.izilong.net/categories/Others/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>博客搬迁</title>
