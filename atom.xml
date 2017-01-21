@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.izilong.net/"/>
-  <updated>2017-01-21T12:41:48.000Z</updated>
+  <updated>2017-01-21T12:43:33.000Z</updated>
   <id>http://blog.izilong.net/</id>
   
   <author>
@@ -20,12 +20,12 @@
     <link href="http://blog.izilong.net/2017/01/21/%E5%8D%9A%E5%AE%A2%E6%90%AC%E8%BF%81/"/>
     <id>http://blog.izilong.net/2017/01/21/博客搬迁/</id>
     <published>2017-01-21T12:32:21.000Z</published>
-    <updated>2017-01-21T12:41:48.000Z</updated>
+    <updated>2017-01-21T12:43:33.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Hexo-Github-Coding"><a href="#Hexo-Github-Coding" class="headerlink" title="Hexo+Github+Coding"></a>Hexo+Github+Coding</h1><p>之前用WordPress，觉得太臃肿，换到了Typecho，比较简洁，也用的是NEXT的主题，感觉好不错。服务器也从阿里云的虚拟主机搬到了日本的Conhon的VPS上，挂了百度云加速的CDN。</p>
 <p>有个域名没备案，临时把网站挂在了VPS上，特喵的居然被学弟D了，结果主机商也太坑爹了，检测到被D，直接封禁账户，不能重建新的VPS，数据搬迁花了我一天的时间。换到了DigitalOcean的新加坡节点。因为各种各样的原因吧，一直没怎么写博客。（主要原因还是自己太渣，觉得没什么可以写的= =、 ）</p>
 <p>放假这几天想把博客重新利用起来，及时简单的东西也要写，温故而知新。也能给后来人一定的帮助。一直想找个比较优雅的方案，发现了Hexo+Github，简直爽爆了，不用担心各种各样被搞的问题，markdown写起来也是真的爽，最主要的还是数据丢失的可能性不大。</p>
-<p>因为上台笔记本SSD掉盘的问题，损失了不少数据，真的是烦躁。换了Mac，博客也改头换面，换个优雅的吧！</p>
+<p>因为上台笔记本SSD掉盘的问题，损失了不少数据，真的是烦躁，当然也怕自己记得东西会丢，之前都是放在有道云笔记，有网页剪报也比较方便，但看到为知笔记最近。。。不知道什么时候有道云也会GG。换了Mac，博客也改头换面，换个优雅的吧！</p>
 <p>以后会发些自己可能会忘，但是很重要的东西，也会陆续把之前的写的文章搬过来。学了这么多，得积淀下东西不是。</p>
 <p>继续加油咯~</p>
 ]]></content>
