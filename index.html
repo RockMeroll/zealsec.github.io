@@ -414,28 +414,14 @@
 
       
         
-          
-            <p>Mac上用ShadowsocksX来翻墙，记得kali虚拟机之前也装了shadowsocks，解决翻墙的问题。前几天学弟想在kali里面去翻墙。记得Windows里面的shadowsocks，直接勾选“允许来自局域网的连接”皆可以共享了。Mac的ShadowsocksX没有这个功能。经过Google，找到一种解决方案，记录一下。<br>&lt;–more–&gt;</p>
-<h2 id="安装Privoxy"><a href="#安装Privoxy" class="headerlink" title="安装Privoxy"></a>安装Privoxy</h2><pre><code>brew install privoxy  //利用brew安装
-</code></pre><p>或从 <a href="http://www.privoxy.org/" target="_blank" rel="external">官网</a>下载，安装</p>
-<h2 id="修改Privoxy的配置信息"><a href="#修改Privoxy的配置信息" class="headerlink" title="修改Privoxy的配置信息"></a>修改Privoxy的配置信息</h2><pre><code>vim /usr/local/etc/privoxy/config
-</code></pre><ol>
-<li><p>修改<code>forward-socks5t  /</code></p>
-<p>删掉注释符，修改为：<code>forward-socks5t   /               127.0.0.1:1080 .</code></p>
-<p>注意结尾有”.”，这里的1080为本机shadowsocks的本地端口。</p>
-</li>
-<li><p>修改<code>listen-address</code></p>
-<p> 删掉注释符，修改为<code>listen-address  0.0.0.0:8118</code></p>
-<p> 这里的8118为Privoxy的本地监听端口。</p>
-</li>
-</ol>
-<h2 id="启动Privoxy"><a href="#启动Privoxy" class="headerlink" title="启动Privoxy"></a>启动Privoxy</h2><pre><code>privoxy --no-daemon /usr/local/etc/privoxy/config
-</code></pre><p>显示：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">2017-02-03 15:04:15.037 7fffaec1b Info: Privoxy version 3.0.26</div><div class="line">2017-02-03 15:04:15.038 7fffaec1b Info: Program name: privoxy</div></pre></td></tr></table></figure>
-<p>运行起来。</p>
-<h2 id="使用代理"><a href="#使用代理" class="headerlink" title="使用代理"></a>使用代理</h2><p>在局域网内其他主机上，代理设置为Mac的IP，端口为之前设置的8118，即可使用Mac上的shadowsocks代理。</p>
-
-          
+          <p>Mac上用ShadowsocksX来翻墙，记得kali虚拟机之前也装了shadowsocks，解决翻墙的问题。前几天学弟想在kali里面去翻墙。记得Windows里面的shadowsocks，直接勾选“允许来自局域网的连接”皆可以共享了。Mac的ShadowsocksX没有这个功能。经过Google，找到一种解决方案，记录一下。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/02/03/shadowsocks共享-for-mac/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>

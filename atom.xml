@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.izilong.net/"/>
-  <updated>2017-02-03T07:37:28.000Z</updated>
+  <updated>2017-02-03T07:41:45.000Z</updated>
   <id>http://blog.izilong.net/</id>
   
   <author>
@@ -20,9 +20,9 @@
     <link href="http://blog.izilong.net/2017/02/03/shadowsocks%E5%85%B1%E4%BA%AB-for-mac/"/>
     <id>http://blog.izilong.net/2017/02/03/shadowsocks共享-for-mac/</id>
     <published>2017-02-03T06:43:09.000Z</published>
-    <updated>2017-02-03T07:37:28.000Z</updated>
+    <updated>2017-02-03T07:41:45.000Z</updated>
     
-    <content type="html"><![CDATA[<p>Mac上用ShadowsocksX来翻墙，记得kali虚拟机之前也装了shadowsocks，解决翻墙的问题。前几天学弟想在kali里面去翻墙。记得Windows里面的shadowsocks，直接勾选“允许来自局域网的连接”皆可以共享了。Mac的ShadowsocksX没有这个功能。经过Google，找到一种解决方案，记录一下。<br>&lt;–more–&gt;</p>
+    <content type="html"><![CDATA[<p>Mac上用ShadowsocksX来翻墙，记得kali虚拟机之前也装了shadowsocks，解决翻墙的问题。前几天学弟想在kali里面去翻墙。记得Windows里面的shadowsocks，直接勾选“允许来自局域网的连接”皆可以共享了。Mac的ShadowsocksX没有这个功能。经过Google，找到一种解决方案，记录一下。<br><a id="more"></a></p>
 <h2 id="安装Privoxy"><a href="#安装Privoxy" class="headerlink" title="安装Privoxy"></a>安装Privoxy</h2><pre><code>brew install privoxy  //利用brew安装
 </code></pre><p>或从 <a href="http://www.privoxy.org/" target="_blank" rel="external">官网</a>下载，安装</p>
 <h2 id="修改Privoxy的配置信息"><a href="#修改Privoxy的配置信息" class="headerlink" title="修改Privoxy的配置信息"></a>修改Privoxy的配置信息</h2><pre><code>vim /usr/local/etc/privoxy/config
@@ -45,7 +45,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;Mac上用ShadowsocksX来翻墙，记得kali虚拟机之前也装了shadowsocks，解决翻墙的问题。前几天学弟想在kali里面去翻墙。记得Windows里面的shadowsocks，直接勾选“允许来自局域网的连接”皆可以共享了。Mac的ShadowsocksX没有
+      &lt;p&gt;Mac上用ShadowsocksX来翻墙，记得kali虚拟机之前也装了shadowsocks，解决翻墙的问题。前几天学弟想在kali里面去翻墙。记得Windows里面的shadowsocks，直接勾选“允许来自局域网的连接”皆可以共享了。Mac的ShadowsocksX没有这个功能。经过Google，找到一种解决方案，记录一下。&lt;br&gt;
     
     </summary>
     
