@@ -63,7 +63,7 @@
     <link href="http://blog.izilong.net/2017/02/03/shadowsocks%E5%85%B1%E4%BA%AB-for-mac/"/>
     <id>http://blog.izilong.net/2017/02/03/shadowsocks共享-for-mac/</id>
     <published>2017-02-03T06:43:09.000Z</published>
-    <updated>2017-02-03T07:41:45.000Z</updated>
+    <updated>2017-02-04T08:09:32.000Z</updated>
     
     <content type="html"><![CDATA[<p>Mac上用ShadowsocksX来翻墙，记得kali虚拟机之前也装了shadowsocks，解决翻墙的问题。前几天学弟想在kali里面去翻墙。记得Windows里面的shadowsocks，直接勾选“允许来自局域网的连接”皆可以共享了。Mac的ShadowsocksX没有这个功能。经过Google，找到一种解决方案，记录一下。<br><a id="more"></a></p>
 <h2 id="安装Privoxy"><a href="#安装Privoxy" class="headerlink" title="安装Privoxy"></a>安装Privoxy</h2><pre><code>brew install privoxy  //利用brew安装
@@ -95,7 +95,9 @@
       <category term="渗透测试" scheme="http://blog.izilong.net/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
     
     
-      <category term="流量转发, shadowsocks" scheme="http://blog.izilong.net/tags/%E6%B5%81%E9%87%8F%E8%BD%AC%E5%8F%91-shadowsocks/"/>
+      <category term="流量转发" scheme="http://blog.izilong.net/tags/%E6%B5%81%E9%87%8F%E8%BD%AC%E5%8F%91/"/>
+    
+      <category term="shadowsocks" scheme="http://blog.izilong.net/tags/shadowsocks/"/>
     
   </entry>
   
