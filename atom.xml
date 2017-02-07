@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.izilong.net/"/>
-  <updated>2017-02-04T08:00:54.000Z</updated>
+  <updated>2017-02-07T08:19:54.000Z</updated>
   <id>http://blog.izilong.net/</id>
   
   <author>
@@ -14,6 +14,39 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hello,2017</title>
+    <link href="http://blog.izilong.net/2017/02/07/hello-2017/"/>
+    <id>http://blog.izilong.net/2017/02/07/hello-2017/</id>
+    <published>2017-02-07T07:53:32.000Z</published>
+    <updated>2017-02-07T08:19:54.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>时间刷刷刷的就没了。。。</p>
+<p>转眼就大三下学期了，讲真，真没学到太多东西，跟自己预想的差太多了。剩下的时间得加倍努力了。计划归计划，就像我皓说的，列老多计划根本没什么用，不知道啥时候来件什么事，就打乱计划。想想也有一定的道理。但是吧，为了督促自己，时不时来看看自己年初列的计划，敲敲警钟，计划还是得有的。万一就超额完成任务了呢。。。<br><a id="more"></a></p>
+<ol>
+<li>精通docker。</li>
+<li>利用docker，把自己想做的东西，做出来个框架。</li>
+<li>多写php，多看php经典漏洞，多审php代码。</li>
+<li>多用python写东西。</li>
+<li>除了Web，继续学习内网渗透的相关知识。</li>
+<li>加强Linux。</li>
+<li>跟着师傅们多挖洞。</li>
+<li>多看技术以外的书（管理、人文）。</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;时间刷刷刷的就没了。。。&lt;/p&gt;
+&lt;p&gt;转眼就大三下学期了，讲真，真没学到太多东西，跟自己预想的差太多了。剩下的时间得加倍努力了。计划归计划，就像我皓说的，列老多计划根本没什么用，不知道啥时候来件什么事，就打乱计划。想想也有一定的道理。但是吧，为了督促自己，时不时来看看自己年初列的计划，敲敲警钟，计划还是得有的。万一就超额完成任务了呢。。。&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="计划" scheme="http://blog.izilong.net/tags/%E8%AE%A1%E5%88%92/"/>
+    
+  </entry>
   
   <entry>
     <title>ajaxfileupload异步上传</title>
