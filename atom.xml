@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.izilong.net/"/>
-  <updated>2017-02-13T02:02:24.000Z</updated>
+  <updated>2017-02-22T00:33:01.000Z</updated>
   <id>http://blog.izilong.net/</id>
   
   <author>
@@ -14,6 +14,68 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>域渗透知识整理(1)</title>
+    <link href="http://blog.izilong.net/2017/02/14/%E5%9F%9F%E6%B8%97%E9%80%8F%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86-1/"/>
+    <id>http://blog.izilong.net/2017/02/14/域渗透知识整理-1/</id>
+    <published>2017-02-14T14:27:31.000Z</published>
+    <updated>2017-02-22T00:33:01.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="判定是否在域内"><a href="#判定是否在域内" class="headerlink" title="判定是否在域内"></a>判定是否在域内</h2><p>拿下内网当中的一台主机后，首先要判断所控主机是否在域内。这里记录集中验证的方法。</p>
+<h3 id="net-time-domain"><a href="#net-time-domain" class="headerlink" title="net time /domain"></a>net time /domain</h3><ul>
+<li>存在域不确定，但当前用户不是域用户。<br><img src="https://ww3.sinaimg.cn/large/006tKfTcly1fcy36pj0bbj30pi046t95.jpg" alt=""></li>
+<li><p>存在域，且当前用户是域用户会从域控返回当前时间。<br><img src="https://ww4.sinaimg.cn/large/006tKfTcly1fcy38y21ycj30ou050gm8.jpg" alt=""></p>
+</li>
+<li><p>不存在域。<br><img src="https://ww1.sinaimg.cn/large/006tKfTcly1fcy3e8wjx6j30k804omxt.jpg" alt=""></p>
+</li>
+</ul>
+<h3 id="net-config-workstation"><a href="#net-config-workstation" class="headerlink" title="net config workstation"></a>net config workstation</h3><p><img src="https://ww3.sinaimg.cn/large/006tKfTcly1fcy3a07910j30wo0jsgon.jpg" alt=""></p>
+<h3 id="systeminfo"><a href="#systeminfo" class="headerlink" title="systeminfo"></a>systeminfo</h3><p><img src="https://ww4.sinaimg.cn/large/006tKfTcly1fcy3atdktaj30m60k4dk3.jpg" alt=""></p>
+<h3 id="ipconfig-all"><a href="#ipconfig-all" class="headerlink" title="ipconfig /all"></a>ipconfig /all</h3><p><img src="https://ww1.sinaimg.cn/large/006tKfTcly1fcy3bjh0yaj30z00kgwhm.jpg" alt=""></p>
+<h2 id="域内信息收集"><a href="#域内信息收集" class="headerlink" title="域内信息收集"></a>域内信息收集</h2><ul>
+<li><p>net user /domain 查看域用户<br><img src="https://ww1.sinaimg.cn/large/006tKfTcly1fcy404bzfhj30we09ujso.jpg" alt=""></p>
+</li>
+<li><p>net view /domain 查看有几个域<br><img src="https://ww3.sinaimg.cn/large/006tKfTcly1fcy40g2dogj30rs05u74s.jpg" alt=""></p>
+</li>
+<li><p>net view /domain:XXX 查看此域内电脑<br><img src="https://ww4.sinaimg.cn/large/006tKfTcly1fcy40xok5nj30rm07e3z8.jpg" alt=""></p>
+</li>
+<li><p>net group /domain 查询域里面的组<br><img src="https://ww4.sinaimg.cn/large/006tKfTcly1fcy41h72l7j30pu0jyjts.jpg" alt=""></p>
+</li>
+<li><p>net group “domain computers” /domain 查看加入到域内的所有计算机名<br><img src="https://ww2.sinaimg.cn/large/006tKfTcly1fcy4420n5gj30w00a8ta8.jpg" alt=""></p>
+</li>
+<li><p>net group “domain admins” /domain 查看域管理员<br><img src="https://ww1.sinaimg.cn/large/006tKfTcly1fcy44wp46ej30w00aeq4d.jpg" alt=""></p>
+</li>
+<li><p>net group “domain controllers” /domain 查看域控制器<br><img src="https://ww1.sinaimg.cn/large/006tNbRwly1fcy48xxo4aj30us028aae.jpg" alt=""></p>
+</li>
+<li><p>net user hacker /domain 获得指定账户的详细信息<br><img src="https://ww1.sinaimg.cn/large/006tNbRwly1fcy4bfhbeoj30r20qq0w7.jpg" alt=""></p>
+</li>
+<li><p>net accounts /domain 获得域密码策略设置，密码长短，错误锁定等信息<br><img src="https://ww1.sinaimg.cn/large/006tNbRwly1fcy4bwkxyyj30q00coq5d.jpg" alt=""></p>
+</li>
+</ul>
+<p>以上命令都是最简单的获取信息命令，只能获取最基本的信息。</p>
+<p>更详细的信息需要用到其他的工具和利用姿势。以后再慢慢写。</p>
+<p>##本地用户与域用户<br>拿到一台主机权限后，有两种可能:</p>
+<ol>
+<li>本地用户<br><img src="https://ww2.sinaimg.cn/large/006tNbRwly1fcyxzj5v1aj30na02u3yt.jpg" alt=""></li>
+<li>域用户<br><img src="https://ww1.sinaimg.cn/large/006tNbRwly1fcyy0vd0jkj30mg02ojrm.jpg" alt=""><br>一般本地用户的administrator可以直接提升为ntauthority\system，SYSTEM用户权限。</li>
+</ol>
+<p>在这三种情况中，本地用户是无法运行之前说的所有命令的，因为本质上所有查询都是通过ldap协议去域控制器上查询，这个查询需要经 过权限认证，只有域用户才有这个权限。当域用户运行查询命令时，会自动使用kerberos协议认证，无需额外输入账号密码。SYSTEM用户的情况比较特殊，在域中，除了普通用户外，所有机器都有一个机器用户，用户名是机器名后加$，本 质上机器上的SYSTEM用户对应的就是域里面的机器用户，所以SYSTEM权限是可以运行之前说的查询命令的。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;判定是否在域内&quot;&gt;&lt;a href=&quot;#判定是否在域内&quot; class=&quot;headerlink&quot; title=&quot;判定是否在域内&quot;&gt;&lt;/a&gt;判定是否在域内&lt;/h2&gt;&lt;p&gt;拿下内网当中的一台主机后，首先要判断所控主机是否在域内。这里记录集中验证的方法。&lt;/p&gt;
+&lt;h3 i
+    
+    </summary>
+    
+      <category term="渗透测试" scheme="http://blog.izilong.net/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
+    
+    
+      <category term="域渗透" scheme="http://blog.izilong.net/tags/%E5%9F%9F%E6%B8%97%E9%80%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>hello,2017</title>
