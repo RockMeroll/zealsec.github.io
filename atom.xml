@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.izilong.net/"/>
-  <updated>2017-02-22T00:33:01.000Z</updated>
+  <updated>2017-02-22T01:01:04.000Z</updated>
   <id>http://blog.izilong.net/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://blog.izilong.net/2017/02/14/%E5%9F%9F%E6%B8%97%E9%80%8F%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86-1/"/>
     <id>http://blog.izilong.net/2017/02/14/域渗透知识整理-1/</id>
     <published>2017-02-14T14:27:31.000Z</published>
-    <updated>2017-02-22T00:33:01.000Z</updated>
+    <updated>2017-02-22T01:01:04.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="判定是否在域内"><a href="#判定是否在域内" class="headerlink" title="判定是否在域内"></a>判定是否在域内</h2><p>拿下内网当中的一台主机后，首先要判断所控主机是否在域内。这里记录集中验证的方法。</p>
 <h3 id="net-time-domain"><a href="#net-time-domain" class="headerlink" title="net time /domain"></a>net time /domain</h3><ul>
@@ -28,9 +28,10 @@
 <li><p>存在域，且当前用户是域用户会从域控返回当前时间。<br><img src="https://ww4.sinaimg.cn/large/006tKfTcly1fcy38y21ycj30ou050gm8.jpg" alt=""></p>
 </li>
 <li><p>不存在域。<br><img src="https://ww1.sinaimg.cn/large/006tKfTcly1fcy3e8wjx6j30k804omxt.jpg" alt=""></p>
-</li>
+<a id="more"></a>
+<h3 id="net-config-workstation"><a href="#net-config-workstation" class="headerlink" title="net config workstation"></a>net config workstation</h3></li>
 </ul>
-<h3 id="net-config-workstation"><a href="#net-config-workstation" class="headerlink" title="net config workstation"></a>net config workstation</h3><p><img src="https://ww3.sinaimg.cn/large/006tKfTcly1fcy3a07910j30wo0jsgon.jpg" alt=""></p>
+<p><img src="https://ww3.sinaimg.cn/large/006tKfTcly1fcy3a07910j30wo0jsgon.jpg" alt=""></p>
 <h3 id="systeminfo"><a href="#systeminfo" class="headerlink" title="systeminfo"></a>systeminfo</h3><p><img src="https://ww4.sinaimg.cn/large/006tKfTcly1fcy3atdktaj30m60k4dk3.jpg" alt=""></p>
 <h3 id="ipconfig-all"><a href="#ipconfig-all" class="headerlink" title="ipconfig /all"></a>ipconfig /all</h3><p><img src="https://ww1.sinaimg.cn/large/006tKfTcly1fcy3bjh0yaj30z00kgwhm.jpg" alt=""></p>
 <h2 id="域内信息收集"><a href="#域内信息收集" class="headerlink" title="域内信息收集"></a>域内信息收集</h2><ul>
@@ -66,7 +67,11 @@
     <summary type="html">
     
       &lt;h2 id=&quot;判定是否在域内&quot;&gt;&lt;a href=&quot;#判定是否在域内&quot; class=&quot;headerlink&quot; title=&quot;判定是否在域内&quot;&gt;&lt;/a&gt;判定是否在域内&lt;/h2&gt;&lt;p&gt;拿下内网当中的一台主机后，首先要判断所控主机是否在域内。这里记录集中验证的方法。&lt;/p&gt;
-&lt;h3 i
+&lt;h3 id=&quot;net-time-domain&quot;&gt;&lt;a href=&quot;#net-time-domain&quot; class=&quot;headerlink&quot; title=&quot;net time /domain&quot;&gt;&lt;/a&gt;net time /domain&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;存在域不确定，但当前用户不是域用户。&lt;br&gt;&lt;img src=&quot;https://ww3.sinaimg.cn/large/006tKfTcly1fcy36pj0bbj30pi046t95.jpg&quot; alt=&quot;&quot;&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;存在域，且当前用户是域用户会从域控返回当前时间。&lt;br&gt;&lt;img src=&quot;https://ww4.sinaimg.cn/large/006tKfTcly1fcy38y21ycj30ou050gm8.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;不存在域。&lt;br&gt;&lt;img src=&quot;https://ww1.sinaimg.cn/large/006tKfTcly1fcy3e8wjx6j30k804omxt.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
     
     </summary>
     
