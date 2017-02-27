@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content=",," />
+  <meta name="keywords" content="zealsec" />
 
 
 
@@ -86,33 +86,15 @@
 
 
 
-<meta name="description" content="题目1进入xserver-mysql，加固MySQL服务器，使所有的访问能被审计，要求通过对mysqld的启动项进行加固。
-本题考点是“所有的访问能被审计”。
-针对于mysql，基于init-connect+binlog可以完成审计功能。">
-<meta name="keywords">
+<meta name="description" content="前行，永不止步，">
 <meta property="og:type" content="website">
-<meta property="og:title" content="任务1：数据库攻防与加固">
-<meta property="og:url" content="http://blog.izilong.net/任务1：数据库攻防与加固/index.html">
+<meta property="og:title" content="Zeal's Blog">
+<meta property="og:url" content="http://blog.izilong.net/tags/数据库安全/index.html">
 <meta property="og:site_name" content="Zeal's Blog">
-<meta property="og:description" content="题目1进入xserver-mysql，加固MySQL服务器，使所有的访问能被审计，要求通过对mysqld的启动项进行加固。
-本题考点是“所有的访问能被审计”。
-针对于mysql，基于init-connect+binlog可以完成审计功能。">
-<meta property="og:image" content="https://ww1.sinaimg.cn/large/006tNbRwly1fd47ffdog8j30ry07qdid.jpg">
-<meta property="og:image" content="https://ww1.sinaimg.cn/large/006tNbRwly1fd47gl9qkcj31ic0l0qa0.jpg">
-<meta property="og:image" content="https://ww3.sinaimg.cn/large/006tNbRwly1fd47kk6f0xj315805u3zq.jpg">
-<meta property="og:image" content="https://ww2.sinaimg.cn/large/006tNbRwly1fd47mvsjkqj30w607mwg4.jpg">
-<meta property="og:image" content="https://ww3.sinaimg.cn/large/006tNbRwly1fd483t058kj30fo0cm0tz.jpg">
-<meta property="og:image" content="https://ww1.sinaimg.cn/large/006tNbRwly1fd48eu0hdjj30hs0e8gn4.jpg">
-<meta property="og:image" content="https://ww1.sinaimg.cn/large/006tNbRwly1fd48hwsvsoj30i00g8abw.jpg">
-<meta property="og:image" content="https://ww1.sinaimg.cn/large/006tNbRwly1fd48jxx58wj30og0va426.jpg">
-<meta property="og:image" content="https://ww3.sinaimg.cn/large/006tNbRwly1fd48q4bpxpj30nw0a475r.jpg">
-<meta property="og:updated_time" content="2017-02-27T00:43:08.000Z">
+<meta property="og:description" content="前行，永不止步，">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="任务1：数据库攻防与加固">
-<meta name="twitter:description" content="题目1进入xserver-mysql，加固MySQL服务器，使所有的访问能被审计，要求通过对mysqld的启动项进行加固。
-本题考点是“所有的访问能被审计”。
-针对于mysql，基于init-connect+binlog可以完成审计功能。">
-<meta name="twitter:image" content="https://ww1.sinaimg.cn/large/006tNbRwly1fd47ffdog8j30ry07qdid.jpg">
+<meta name="twitter:title" content="Zeal's Blog">
+<meta name="twitter:description" content="前行，永不止步，">
 
 
 
@@ -140,19 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://blog.izilong.net/任务1：数据库攻防与加固/"/>
+  <link rel="canonical" href="http://blog.izilong.net/tags/数据库安全/"/>
 
 
 
 
 
-  <title>
-  
-
-  
-    任务1：数据库攻防与加固 | Zeal's Blog
-  
-</title>
+  <title> 标签: 数据库安全 | Zeal's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -315,74 +291,46 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-  <header class="post-header">
-
-	<h2 class="post-title" itemprop="name headline">任务1：数据库攻防与加固</h2>
-
-
-
-</header>
+  <div id="posts" class="posts-collapse">
+    <div class="collection-title">
+      <h2 >
+        数据库安全
+        <small>标签</small>
+      </h2>
+    </div>
 
     
-    
-      <h2 id="题目1"><a href="#题目1" class="headerlink" title="题目1"></a>题目1</h2><p>进入xserver-mysql，加固MySQL服务器，使所有的访问能被审计，要求通过对mysqld的启动项进行加固。</p>
-<p>本题考点是“所有的访问能被审计”。</p>
-<p>针对于mysql，基于init-connect+binlog可以完成审计功能。<br><a id="more"></a></p>
-<h3 id="init-connect-binlog建立过程"><a href="#init-connect-binlog建立过程" class="headerlink" title="init-connect+binlog建立过程"></a>init-connect+binlog建立过程</h3><ol>
-<li>建立数据表，用来存储相关信息。</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">create database AuditDB default charset utf8;</div><div class="line">use AuditDB;</div><div class="line">create table accesslog (</div><div class="line">ID int primary key auto_increment,</div><div class="line">ConnectionID int,</div><div class="line">ConnUserName varchar(30), </div><div class="line">PrivMatchName varchar(30), </div><div class="line">LoginTIme timestamp);</div></pre></td></tr></table></figure>
-<p><strong>注意，以后每添加一个用户都必须授权此表的插入权限，否则会连接不上mysql。</strong></p>
-<ol>
-<li>赋予所有用户对AuditDB数据库的写权限。</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">insert into db (Host,Db,User,Insert_priv) values (&apos;%&apos;,&apos;AuditDB&apos;,&apos;&apos;,&apos;Y&apos;);</div><div class="line">flush privileges;</div></pre></td></tr></table></figure>
-<ol>
-<li>设置init_connect、log-bin并重启mysql服务</li>
-</ol>
-<p>编辑MySQL的配置文件，/etc/mysql/my.conf，在[mysqld]下面添加：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">init-connect=&apos;insert into AuditDB.accesslog (ConnectionID,ConnUserName,PrivMatchName,LoginTime) values(connection_id(),user(),current_user(),now());&apos;</div><div class="line"></div><div class="line">log-bin=mysqlbin-log</div></pre></td></tr></table></figure>
-<p>最后重启mysql服务： <code>service mysql restart</code></p>
-<p>log-bin 参数设置的是MySQL生成的日志前缀，目录为：<br><img src="https://ww1.sinaimg.cn/large/006tNbRwly1fd47ffdog8j30ry07qdid.jpg" alt=""></p>
-<p>每一次登陆，会生成一个二进制文件，需要用mysqlbinlog去查看，如图：<br><img src="https://ww1.sinaimg.cn/large/006tNbRwly1fd47gl9qkcj31ic0l0qa0.jpg" alt=""></p>
-<p>至此设置完成。</p>
-<h3 id="审计过程"><a href="#审计过程" class="headerlink" title="审计过程"></a>审计过程</h3><p>比如想查看谁插入了一条带有world关键词的记录。<br>mysqlbinlog mysqlbin-log.000005</p>
-<p><img src="https://ww3.sinaimg.cn/large/006tNbRwly1fd47kk6f0xj315805u3zq.jpg" alt=""></p>
-<p>获得thread_id。<br>查询数据库审计表中的记录：<br><img src="https://ww2.sinaimg.cn/large/006tNbRwly1fd47mvsjkqj30w607mwg4.jpg" alt=""><br>可知是zeal用户添加了一条带有关键词<code>world</code>的数据。</p>
-<p><strong>*注意，此方法只能审计非super权限用户的操作</strong></p>
-<h2 id="题目2"><a href="#题目2" class="headerlink" title="题目2"></a>题目2</h2><p>配置Linux防火墙，允许MySQL服务能够被访问，要求规则中只包含端口项。</p>
-<p>本题考查Linux下防火墙的使用。</p>
-<p>MySQL的服务端口默认为3306端口，在防火墙上对3306端口启用ACCEPT规则即可。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">/sbin/iptables -I INPUT -p tcp --dport 3306 -j ACCEPT</div><div class="line">/etc/rc.d/init.d/iptables save</div><div class="line">/etc/init.d/iptables status</div></pre></td></tr></table></figure>
-<h2 id="题目3"><a href="#题目3" class="headerlink" title="题目3"></a>题目3</h2><p>进入xserver-mysql，查看所有用户及权限，找到可以从任何IP的值访问的用户。</p>
-<p>本题考查mysql用户相关信息的查询。</p>
-<p>在MySQL中，用户的信息存储在mysql数据库的user表中。host列为用户可登陆的地址。<code>%</code>为任意地址。</p>
-<p><code>select user,host from mysql.user</code></p>
-<p><img src="https://ww3.sinaimg.cn/large/006tNbRwly1fd483t058kj30fo0cm0tz.jpg" alt=""></p>
-<h2 id="题目4"><a href="#题目4" class="headerlink" title="题目4"></a>题目4</h2><p>对题号3中的漏洞进行加固，核定该用户只能从公司PC-1使用，用grant命令进行管理。</p>
-<p>本题考查MySQL中，用grant管理用户的知识。</p>
-<p>登陆root用户。</p>
-<p><code>grant all privileges on *.* to sdust@xxx.xxx.xxx.xxx identified by &#39;passowrd&#39;;</code></p>
-<p>xxx.xxx.xxx.xxx 为PC-1的IP地址。</p>
-<h2 id="题目5"><a href="#题目5" class="headerlink" title="题目5"></a>题目5</h2><p>检查xserver-mysql中是否存在数据库匿名用户，如果存在数据库匿名用户，则删除该用户。</p>
-<p>本题考查MySQL数据库中匿名用户相关知识。</p>
-<h3 id="匿名用户："><a href="#匿名用户：" class="headerlink" title="匿名用户："></a>匿名用户：</h3><p>安装完MySQL以后会自动创建一个root用户和一个匿名用户，对于root大家都非常注意，而这个匿名用户很多人都会忽略，大概是因为匿名用户默认设定为只能在本地使用的缘故吧。 </p>
-<p>但匿名用户几乎拥有与root一样的权限，当网站被入侵，黑客找不到root的密码，可以通过匿名用户，实现与root权限相同的功能，进行提权。</p>
-<p><img src="https://ww1.sinaimg.cn/large/006tNbRwly1fd48eu0hdjj30hs0e8gn4.jpg" alt=""></p>
-<h3 id="删除方法"><a href="#删除方法" class="headerlink" title="删除方法"></a>删除方法</h3><p><code>delete from mysql.user where user=&#39;&#39;;</code></p>
-<p><img src="https://ww1.sinaimg.cn/large/006tNbRwly1fd48hwsvsoj30i00g8abw.jpg" alt=""></p>
-<h2 id="题目6"><a href="#题目6" class="headerlink" title="题目6"></a>题目6</h2><p>改变MySQL管理员的名称，将系统的默认管理员root改为admin。</p>
-<p><code>update mysql.user set user=&#39;admin&#39; where user=&#39;root&#39;;</code><br><img src="https://ww1.sinaimg.cn/large/006tNbRwly1fd48jxx58wj30og0va426.jpg" alt=""></p>
-<h2 id="题目7"><a href="#题目7" class="headerlink" title="题目7"></a>题目7</h2><p>禁止MySQL对本地文件进行存取，对mysqld的启动项进行加固。</p>
-<p>本题考查利用MySQL数据库对服务器当中的文件进行存取的知识。</p>
-<p>一般，黑客可通过root权限的注入点，去写shell（into outfile），或者读取服务器中的文件内容（load data）。</p>
-<p><img src="https://ww3.sinaimg.cn/large/006tNbRwly1fd48q4bpxpj30nw0a475r.jpg" alt=""></p>
-<p>利用local-infile=0可以禁止对本地文件的存取。<br>将local-infile=0加入MySQL配置文件，mysqld下即可。</p>
-<h2 id="题目8"><a href="#题目8" class="headerlink" title="题目8"></a>题目8</h2><p>限制一般用户浏览其他用户数据库，对mysqld的启动项进行加固。</p>
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h1 class="post-title">
+        
+            <a class="post-title-link" href="/2017/02/26/MySQL数据库安全加固/" itemprop="url">
+              
+                <span itemprop="name">任务1：数据库攻防与加固</span>
+              
+            </a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2017-02-26T21:21:18+08:00"
+              content="2017-02-26" >
+          02-26
+        </time>
+      </div>
+
+    </header>
+  </article>
+
 
     
   </div>
+
+  
 
           
           </div>
@@ -390,14 +338,6 @@
 
 
           
-  <div class="comments" id="comments">
-    
-      <div class="ds-thread" data-thread-key="任务1：数据库攻防与加固/index.html"
-           data-title="任务1：数据库攻防与加固" data-url="http://blog.izilong.net/任务1：数据库攻防与加固/index.html">
-      </div>
-    
-  </div>
-
 
         </div>
         
@@ -440,7 +380,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -449,7 +389,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

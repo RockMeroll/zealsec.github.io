@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.izilong.net/"/>
-  <updated>2017-02-27T01:03:22.000Z</updated>
+  <updated>2017-02-27T01:05:59.000Z</updated>
   <id>http://blog.izilong.net/</id>
   
   <author>
@@ -16,15 +16,13 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>MySQL数据库安全加固</title>
-    <link href="http://blog.izilong.net/2017/02/27/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%89%E5%85%A8%E5%8A%A0%E5%9B%BA/"/>
-    <id>http://blog.izilong.net/2017/02/27/MySQL数据库安全加固/</id>
-    <published>2017-02-27T01:03:04.000Z</published>
-    <updated>2017-02-27T01:03:22.000Z</updated>
+    <title>任务1：数据库攻防与加固</title>
+    <link href="http://blog.izilong.net/2017/02/26/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%89%E5%85%A8%E5%8A%A0%E5%9B%BA/"/>
+    <id>http://blog.izilong.net/2017/02/26/MySQL数据库安全加固/</id>
+    <published>2017-02-26T13:21:18.000Z</published>
+    <updated>2017-02-27T01:05:59.000Z</updated>
     
-    <content type="html"><![CDATA[<hr>
-<p>title: 任务1：数据库攻防与加固<br>date: 2017-02-26 21:21:18<br>categories: 安全加固</p>
-<h2 id="tags-数据库安全-mysql"><a href="#tags-数据库安全-mysql" class="headerlink" title="tags: [数据库安全, mysql]"></a>tags: [数据库安全, mysql]</h2><h2 id="题目1"><a href="#题目1" class="headerlink" title="题目1"></a>题目1</h2><p>进入xserver-mysql，加固MySQL服务器，使所有的访问能被审计，要求通过对mysqld的启动项进行加固。</p>
+    <content type="html"><![CDATA[<h2 id="题目1"><a href="#题目1" class="headerlink" title="题目1"></a>题目1</h2><p>进入xserver-mysql，加固MySQL服务器，使所有的访问能被审计，要求通过对mysqld的启动项进行加固。</p>
 <p>本题考点是“所有的访问能被审计”。</p>
 <p>针对于mysql，基于init-connect+binlog可以完成审计功能。<br><a id="more"></a></p>
 <h3 id="init-connect-binlog建立过程"><a href="#init-connect-binlog建立过程" class="headerlink" title="init-connect+binlog建立过程"></a>init-connect+binlog建立过程</h3><ol>
@@ -82,14 +80,18 @@
     
     <summary type="html">
     
-      &lt;hr&gt;
-&lt;p&gt;title: 任务1：数据库攻防与加固&lt;br&gt;date: 2017-02-26 21:21:18&lt;br&gt;categories: 安全加固&lt;/p&gt;
-&lt;h2 id=&quot;tags-数据库安全-mysql&quot;&gt;&lt;a href=&quot;#tags-数据库安全-mysql&quot; class=&quot;headerlink&quot; title=&quot;tags: [数据库安全, mysql]&quot;&gt;&lt;/a&gt;tags: [数据库安全, mysql]&lt;/h2&gt;&lt;h2 id=&quot;题目1&quot;&gt;&lt;a href=&quot;#题目1&quot; class=&quot;headerlink&quot; title=&quot;题目1&quot;&gt;&lt;/a&gt;题目1&lt;/h2&gt;&lt;p&gt;进入xserver-mysql，加固MySQL服务器，使所有的访问能被审计，要求通过对mysqld的启动项进行加固。&lt;/p&gt;
+      &lt;h2 id=&quot;题目1&quot;&gt;&lt;a href=&quot;#题目1&quot; class=&quot;headerlink&quot; title=&quot;题目1&quot;&gt;&lt;/a&gt;题目1&lt;/h2&gt;&lt;p&gt;进入xserver-mysql，加固MySQL服务器，使所有的访问能被审计，要求通过对mysqld的启动项进行加固。&lt;/p&gt;
 &lt;p&gt;本题考点是“所有的访问能被审计”。&lt;/p&gt;
 &lt;p&gt;针对于mysql，基于init-connect+binlog可以完成审计功能。&lt;br&gt;
     
     </summary>
     
+      <category term="安全加固" scheme="http://blog.izilong.net/categories/%E5%AE%89%E5%85%A8%E5%8A%A0%E5%9B%BA/"/>
+    
+    
+      <category term="数据库安全" scheme="http://blog.izilong.net/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%89%E5%85%A8/"/>
+    
+      <category term="mysql" scheme="http://blog.izilong.net/tags/mysql/"/>
     
   </entry>
   
