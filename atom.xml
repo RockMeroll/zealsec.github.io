@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Zeal&#39;s Blog</title>
+  <title>Zilong&#39;s Blog</title>
   <subtitle>前行，永不止步，</subtitle>
   <link href="/atom.xml" rel="self"/>
   
@@ -9,7 +9,7 @@
   <id>http://blog.izilong.net/</id>
   
   <author>
-    <name>Zeal</name>
+    <name>Zilong</name>
     
   </author>
   
