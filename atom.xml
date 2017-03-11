@@ -102,7 +102,7 @@
     <link href="http://blog.izilong.net/2017/02/14/%E5%9F%9F%E6%B8%97%E9%80%8F%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86-2/"/>
     <id>http://blog.izilong.net/2017/02/14/域渗透基础知识整理-2/</id>
     <published>2017-02-14T14:27:31.000Z</published>
-    <updated>2017-03-11T08:41:59.000Z</updated>
+    <updated>2017-03-11T08:44:08.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="判定是否在域内"><a href="#判定是否在域内" class="headerlink" title="判定是否在域内"></a>判定是否在域内</h2><p>拿下内网当中的一台主机后，首先要判断所控主机是否在域内。这里记录集中验证的方法。</p>
 <h3 id="net-time-domain"><a href="#net-time-domain" class="headerlink" title="net time /domain"></a>net time /domain</h3><ul>
@@ -129,7 +129,7 @@
 </li>
 <li><p>net group “domain admins” /domain 查看域管理员<br><img src="https://ww1.sinaimg.cn/large/006tKfTcly1fcy44wp46ej30w00aeq4d.jpg" alt=""></p>
 </li>
-<li><p>net group “domain controllers” /domain 查看域控制器<br><img src="https://ww3.sinaimg.cn/large/006tNbRwly1fdizqt3ulvj30jj06f3z3.jpg" alt=""></p>
+<li><p>net group “domain controllers” /domain 查看域控制器<br><img src="https://ww1.sinaimg.cn/large/006tNbRwly1fdizt5924gj30jj06bzku.jpg" alt=""></p>
 </li>
 <li><p>net user hacker /domain 获得指定账户的详细信息<br><img src="https://ww1.sinaimg.cn/large/006tNbRwly1fcy4bfhbeoj30r20qq0w7.jpg" alt=""></p>
 </li>
